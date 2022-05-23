@@ -1,0 +1,62 @@
+
+spring:
+  profiles:
+    active: prod
+
+---
+
+spring:
+  profiles: dev
+  datasource:
+    username: root
+    url: jdbc:mysql://localhost:3306/dcbappdev
+    driverClassName: com.mysql.jdbc.Driver
+    password: '1234'
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+welcome:
+  message: Welcome to Manchester Dev!!
+
+---
+
+spring:
+  profiles: qa
+  datasource:
+    username: root
+    url: jdbc:mysql://localhost:3306/dcbappqa
+    driverClassName: com.mysql.jdbc.Driver
+    password: '1234'
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+welcome:
+  message: Welcome to Manchester Qa!!
+
+---
+
+spring:
+  profiles: prod
+  datasource:
+    username: root
+    url: jdbc:mysql://localhost:3306/dcbapp
+    driverClassName: com.mysql.jdbc.Driver
+    password: '1234'
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+welcome:
+  message: Welcome to Manchester prod!!
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: "env,beans"
+
+
+---
